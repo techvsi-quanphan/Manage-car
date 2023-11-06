@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit User</title>
+    <%- include('../layout/head') %>
+</head>
+<body>
+    <div class="container">
+        <%- include('../layout/nav') %>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Edit Car
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <% if(data && data.error){ %>
+                            <div id="login-alert" class="alert alert-danger col-sm-12">
+                                <%= data.error %>
+                            </div>
+                        <% } %>
+                        <form role="form" method="POST" action="/admin/cars/edit">
+                            <input class="car_id" type="hidden" name="car_id" value="<% if (data && data.cars){ %><%= data.cars.car_id %><% } %>">
+                        
+                            <div class="form-group">
+                                <label>Model</label>
+                                <input class="form-control model" name="model" placeholder="Model" value="<% if (data && data.car){ %><%= data.car.model %><% } %>">
+                            </div>
+                            <div class="form-group">
+                                <label>Specifications</label>
+                                <input class="form-control specifications" name="specifications" placeholder=" Specifications" value="<% if (data && data.car){ %><%= data.car.specifications %><% } %>">
+                            </div>
+                            <div class="form-group">
+                                <label>Price</label>
+                                <input class="form-control price" name="price" placeholder="Price" value="<% if (data && data.car){ %><%= data.car.price %><% } %>">
+                            </div>
+                            <input type="button" name="" value="Edit" class="btn btn-success car_edit" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="/static/js/car.js">
+    </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <!-- Đưa các thẻ CSS và JS cần thiết vào đây -->
+</head>
+<body>
+    <h1>Car Detail</h1>
+    <% if (data && data.car) { %>
+        <p>Car_ID: <%= data.car.car_id %></p>
+        <p>Model: <%= data.car.model %></p>
+        <p>Specifications: <%= data.car.specifications %></p>
+        <p>Price: <%= data.car.price %></p>
+        <p>Manufacturer_ID: <%= data.car.manufacturer_id %></p>
+    <% } else { %>
+        <p>Car not found</p>
+    <% } %>
+</body>
+</html>

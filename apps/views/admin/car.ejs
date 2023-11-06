@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        <title></title>
+        <%- include('layout/head') %>
+    </head>
+    <body>
+     
+        <%- include('layout/nav') %>
+        
+
+        <div class = "container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card-header">Cars</div>
+               
+                  </div>
+                  <div class="datatable-search">
+                  </div>
+                  </div>
+                  <div class="datatable-container">
+                    <div class ="row"> 
+                        <div class = "col-md -12">
+                           <a href = "/admin/cars/add_car" class = "btn btn-success pull-right">Add Car</a>
+                       </div>
+                       </div>
+                    <table id="datatablesSimple" class="datatable-table">
+                        <thead><tr><th data-sortable="true" style="width: 12.793733681462141%;">
+                            <a href="#" class="datatable-sorter">Car_ID</a></th><th data-sortable="true" style="width: 15.143603133159269%;">
+                                <a href="#" class="datatable-sorter">Model</a></th><th data-sortable="true" style="width: 12.27154046997389%;">
+                                    <a href="#" class="datatable-sorter">Specifications</a></th><th data-sortable="true" style="width: 9.007832898172325%;">
+                                        <a href="#" class="datatable-sorter">Price</a></th><th data-sortable="true" style="width: 14.229765013054829%;">
+                                            <a href="#" class="datatable-sorter">Manufacture_ID</a></th><th data-sortable="true" style="width: 13.315926892950392%;">
+                                                
+                  <tbody>
+                    <%  if (data && data.cars){%>
+                        <% for(var i =0;i<data.cars.length;i++){%>
+                            <tr>
+                                <td> <%=data.cars[i].car_id%></td>
+                                <td> <%=data.cars[i].model%></td>
+                                <td> </td>
+                                <td></td>
+                                <td> <%=data.cars[i].manufacturer_id%></td>
+                               <td>
+                                <a href="/admin/car/<%= data.cars[i].car_id %>">Show</a>
+                                <a href="/admin/cars/edit/<%= data.cars[i].car_id %>" class="btn btn-primary">Edit</a>
+                                <button class="btn btn-danger car_delete" car_id="<%= data.cars[i].car_id %>">Delete</button>
+
+                               </td>
+                               
+
+
+                            </tr>
+                            <%}%>
+
+                    <%}%>
+                  </tbody>  
+                  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      
+                  <script type = "text/javascript" src ="static/js/car.js">
+                    
+                  </script>     
+
+      
+    </body>
+</html>
